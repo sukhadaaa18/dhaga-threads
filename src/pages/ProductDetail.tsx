@@ -178,8 +178,9 @@ const ProductDetail = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className="flex flex-col justify-center"
+              className="flex flex-col justify-start"
             >
+
               {product.tag && (
                 <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-primary mb-2 md:mb-4 font-bold">
                   {product.tag}

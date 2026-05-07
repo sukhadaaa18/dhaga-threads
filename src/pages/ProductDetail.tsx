@@ -158,13 +158,14 @@ const ProductDetail = () => {
         <div className="absolute inset-0 motif-bg opacity-30" />
 
         <div className="container relative">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-[1.15fr,0.85fr] gap-12 lg:gap-20 items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="gold-frame bg-card w-full max-w-[520px] mx-auto md:sticky md:top-28"
+              className="gold-frame bg-card w-full md:sticky md:top-28"
             >
+
 
 
               <div className="overflow-hidden">

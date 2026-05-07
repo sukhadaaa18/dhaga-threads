@@ -165,14 +165,11 @@ const ProductDetail = () => {
               transition={{ duration: 0.8 }}
               className="gold-frame bg-card w-full md:sticky md:top-28"
             >
-
-
-
-              <div className="overflow-hidden">
+              <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-auto block"
+                  className="w-full h-full object-cover object-[center_20%]"
                 />
               </div>
             </motion.div>

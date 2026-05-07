@@ -48,8 +48,9 @@ const Home = () => {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-blush">
-        <div className="absolute inset-0 motif-bg" />
+      <section className="relative overflow-hidden bg-gradient-blush border-b border-primary/5">
+        <div className="absolute inset-0 motif-bg opacity-10" />
+
         <div className="container relative grid md:grid-cols-2 items-center min-h-[78vh] gap-10 py-10 md:py-14">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -103,8 +104,9 @@ const Home = () => {
       </section>
 
       {/* CATEGORY TILES — all 6 */}
-      <section className="py-14 md:py-20 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 motif-bg" />
+      <section className="py-14 md:py-24 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 motif-bg opacity-40" />
+
         <div className="container relative">
           <SectionHeading
             eyebrow="Shop By Silhouette"
@@ -149,8 +151,9 @@ const Home = () => {
 
       {/* FEATURED CAROUSEL */}
       {featured.length > 0 && (
-        <section className="py-14 md:py-20 bg-gradient-luxe relative overflow-hidden">
-          <div className="absolute inset-0 motif-bg" />
+        <section className="py-14 md:py-24 bg-gradient-luxe relative overflow-hidden border-y border-primary/5">
+          <div className="absolute inset-0 motif-bg opacity-30" />
+
           <div className="container relative">
             <SectionHeading
               eyebrow="The Atelier"
@@ -165,8 +168,9 @@ const Home = () => {
       )}
 
       {/* DHAGA REELS */}
-      <section className="py-14 md:py-20 bg-secondary/40 relative overflow-hidden">
-        <div className="absolute inset-0 motif-bg" />
+      <section className="py-14 md:py-24 bg-secondary/20 relative overflow-hidden">
+        <div className="absolute inset-0 motif-bg opacity-40" />
+
         <div className="container relative grid lg:grid-cols-2 items-center gap-12 lg:gap-16">
           <div className="order-2 lg:order-1">
             <SectionHeading
@@ -239,8 +243,9 @@ const Home = () => {
 
       {/* BEST SELLERS */}
       {bestSellers.length > 0 && (
-        <section className="py-14 md:py-20 bg-secondary/30 relative overflow-hidden">
-          <div className="absolute inset-0 motif-bg" />
+        <section className="py-14 md:py-24 bg-secondary/30 relative overflow-hidden border-y border-primary/5">
+          <div className="absolute inset-0 motif-bg opacity-30" />
+
           <div className="container relative">
             <SectionHeading
               eyebrow="Loved By Many"
@@ -280,8 +285,9 @@ const Home = () => {
       )}
 
       {/* QUOTE STRIP */}
-      <section className="py-14 md:py-20 bg-secondary/40 relative overflow-hidden">
-        <div className="absolute inset-0 motif-bg" />
+      <section className="py-14 md:py-24 bg-gradient-luxe relative overflow-hidden">
+        <div className="absolute inset-0 motif-bg opacity-40" />
+
         <div className="container relative text-center max-w-3xl">
           <p className="text-primary text-2xl mb-4">✦</p>
           <p className="font-serif italic text-2xl md:text-3xl text-foreground leading-snug text-balance">

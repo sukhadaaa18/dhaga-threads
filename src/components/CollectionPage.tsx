@@ -121,8 +121,8 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
 
         {/* Product Grid */}
         <section className="py-12 relative min-h-[60vh] overflow-hidden bg-background">
-          {/* Background Motif for Products Area - Ghost Opacity */}
-          <div className="absolute inset-0 motif-bg opacity-[0.05]" />
+          {/* Background Motif for Products Area - Ultra Minimal Ghost Opacity */}
+          <div className="absolute inset-0 motif-bg opacity-[0.03]" />
           
           <div className="container relative z-10">
             {products.length === 0 ? (
@@ -144,6 +144,7 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
             )}
           </div>
         </section>
+
 
 
 

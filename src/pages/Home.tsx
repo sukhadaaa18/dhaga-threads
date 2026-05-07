@@ -60,10 +60,11 @@ const Home = () => {
               className="flex flex-col items-start space-y-8"
             >
               <div className="space-y-4">
-                <h1 className="font-serif text-5xl md:text-6xl lg:text-8xl leading-[1.05] text-foreground text-balance">
+                <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground text-balance">
                   Elegance Woven<br />
                   <span className="italic text-primary">in Every Thread</span>
                 </h1>
+
                 <p className="text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
                   Timeless Indian silhouettes, handcrafted with care and intention —
                   pieces you don’t just wear for a moment, but return to, again and again.

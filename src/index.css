@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dhaga — soft luxury Indian ethnic wear design system. All colors HSL. */
+
+@layer base {
+  :root {
+    /* Pastel luxury palette */
+    --background: 38 44% 97%;          /* ivory */
+    --foreground: 25 25% 18%;          /* deep ink brown */
+
+    --card: 36 50% 99%;
+    --card-foreground: 25 25% 18%;
+
+    --popover: 38 44% 97%;
+    --popover-foreground: 25 25% 18%;
+
+    /* Primary — refined darker gold for better readability */
+    --primary: 36 45% 42%;
+    --primary-foreground: 38 44% 97%;
+
+    /* Secondary — blush pink */
+    --secondary: 12 55% 90%;
+    --secondary-foreground: 25 25% 18%;
+
+    --muted: 36 30% 93%;
+    --muted-foreground: 25 12% 42%;
+
+    /* Accent — sage green */
+    --accent: 110 18% 78%;
+    --accent-foreground: 25 25% 18%;
+
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 36 30% 86%;
+    --input: 36 30% 88%;
+    --ring: 36 45% 52%;
+
+    --radius: 0.25rem;
+
+    /* Brand custom tokens */
+    --gold: 36 50% 55%;
+    --gold-soft: 36 60% 78%;
+    --blush: 12 55% 88%;
+    --blush-deep: 8 45% 75%;
+    --sage: 110 22% 70%;
+    --ivory: 38 44% 97%;
+    --beige: 32 30% 88%;
+
+    --gradient-luxe: linear-gradient(135deg, hsl(38 44% 97%) 0%, hsl(12 55% 94%) 50%, hsl(36 35% 92%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(36 50% 65%), hsl(36 45% 50%));
+    --gradient-blush: linear-gradient(180deg, hsl(12 55% 95%) 0%, hsl(38 44% 97%) 100%);
+    --gradient-sage: linear-gradient(135deg, hsl(110 22% 82%), hsl(110 18% 70%));
+
+    --shadow-soft: 0 10px 40px -15px hsl(25 25% 18% / 0.08);
+    --shadow-luxe: 0 20px 60px -20px hsl(36 45% 35% / 0.18);
+    --shadow-card: 0 8px 30px -10px hsl(25 25% 18% / 0.1);
+    --shadow-glow: 0 0 30px hsl(36 60% 70% / 0.4);
+
+    --transition-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --glass-background: 0 0% 100% / 0.6;
+    --glass-border: 0 0% 100% / 0.2;
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+
+    --sidebar-background: 38 44% 97%;
+    --sidebar-foreground: 25 25% 18%;
+    --sidebar-primary: 36 45% 52%;
+    --sidebar-primary-foreground: 38 44% 97%;
+    --sidebar-accent: 36 30% 93%;
+    --sidebar-accent-foreground: 25 25% 18%;
+    --sidebar-border: 36 30% 86%;
+    --sidebar-ring: 36 45% 52%;
+  }
+
+  .dark {
+    --background: 25 20% 10%;
+    --foreground: 38 30% 92%;
+    --card: 25 20% 12%;
+    --card-foreground: 38 30% 92%;
+    --popover: 25 20% 12%;
+    --popover-foreground: 38 30% 92%;
+    --primary: 36 50% 60%;
+    --primary-foreground: 25 20% 10%;
+    --secondary: 25 15% 18%;
+    --secondary-foreground: 38 30% 92%;
+    --muted: 25 15% 18%;
+    --muted-foreground: 38 15% 65%;
+    --accent: 110 15% 30%;
+    --accent-foreground: 38 30% 92%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 36 50% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "ss02";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .font-sans {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gold-divider {
+    @apply inline-flex items-center justify-center gap-3 text-primary;
+  }
+  .gold-divider::before,
+  .gold-divider::after {
+    content: '';
+    @apply h-px w-12 bg-primary/50;
+  }
+
+  .gold-frame {
+    position: relative;
+    border: 1px solid rgba(197, 165, 114, 0.3);
+    box-shadow: var(--shadow-card);
+  }
+  .gold-frame::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid hsl(var(--gold-soft));
+    pointer-events: none;
+    z-index: 2;
+    transition: all 0.4s var(--transition-luxe);
+  }
+  .gold-frame:hover::before {
+    inset: 10px;
+    border-color: hsl(var(--gold));
+  }
+
+  .gold-frame-thin {
+    border: 1px solid rgba(197, 165, 114, 0.2);
+  }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .motif-bg {
+    background-image: url('/src/assets/motif-pattern.png');
+    background-size: 600px;
+    background-repeat: repeat;
+    background-blend-mode: soft-light;
+    opacity: 0.08;
+    pointer-events: none;
+    filter: saturate(0.5) brightness(1.05);
+    animation: backgroundFloat 150s linear infinite;
+  }
+
+  @keyframes backgroundFloat {
+    from { background-position: 0 0; }
+    to { background-position: 500px 500px; }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-card {
+    background: hsla(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsla(var(--border) / 0.4);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-navbar {
+    background: hsla(var(--background) / 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid hsla(var(--border) / 0.6);
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: 0.5s;
+  }
+  .shimmer:hover::after {
+    left: 100%;
+  }
+
+  .editorial-text {
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-luxe { background: var(--gradient-luxe); }
+  .bg-gradient-gold { background: var(--gradient-gold); }
+  .bg-gradient-blush { background: var(--gradient-blush); }
+  .bg-gradient-sage { background: var(--gradient-sage); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-luxe { box-shadow: var(--shadow-luxe); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

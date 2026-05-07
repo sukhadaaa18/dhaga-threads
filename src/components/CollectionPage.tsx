@@ -139,9 +139,9 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
                     <SelectItem value="l">L</SelectItem>
                     <SelectItem value="xl">XL</SelectItem>
                     <SelectItem value="xxl">XXL</SelectItem>
-                    <SelectItem value="3xl">3XL</SelectItem>
                   </SelectContent>
                 </Select>
+
 
                 {hasActiveFilters && (
                   <button 

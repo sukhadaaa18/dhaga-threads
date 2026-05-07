@@ -104,7 +104,8 @@ const Home = () => {
       </section>
 
       {/* CATEGORY TILES — all 6 */}
-      <section className="py-14 md:py-24 bg-background relative overflow-hidden">
+      <section className="py-14 md:py-16 bg-background relative overflow-hidden">
+
         <div className="absolute inset-0 motif-bg opacity-40" />
 
         <div className="container relative">
@@ -151,7 +152,8 @@ const Home = () => {
 
       {/* FEATURED CAROUSEL */}
       {featured.length > 0 && (
-        <section className="py-14 md:py-24 bg-gradient-luxe relative overflow-hidden border-y border-primary/5">
+        <section className="py-14 md:py-16 bg-gradient-luxe relative overflow-hidden border-y border-primary/5">
+
           <div className="absolute inset-0 motif-bg opacity-30" />
 
           <div className="container relative">
@@ -168,7 +170,8 @@ const Home = () => {
       )}
 
       {/* DHAGA REELS */}
-      <section className="py-14 md:py-24 bg-secondary/20 relative overflow-hidden">
+      <section className="py-14 md:py-16 bg-secondary/20 relative overflow-hidden">
+
         <div className="absolute inset-0 motif-bg opacity-40" />
 
         <div className="container relative grid lg:grid-cols-2 items-center gap-12 lg:gap-16">
@@ -243,7 +246,8 @@ const Home = () => {
 
       {/* BEST SELLERS */}
       {bestSellers.length > 0 && (
-        <section className="py-14 md:py-24 bg-secondary/30 relative overflow-hidden border-y border-primary/5">
+        <section className="py-14 md:py-16 bg-secondary/30 relative overflow-hidden border-y border-primary/5">
+
           <div className="absolute inset-0 motif-bg opacity-30" />
 
           <div className="container relative">
@@ -285,7 +289,8 @@ const Home = () => {
       )}
 
       {/* QUOTE STRIP */}
-      <section className="py-14 md:py-24 bg-gradient-luxe relative overflow-hidden">
+      <section className="py-14 md:py-16 bg-gradient-luxe relative overflow-hidden">
+
         <div className="absolute inset-0 motif-bg opacity-40" />
 
         <div className="container relative text-center max-w-3xl">

@@ -23,14 +23,14 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
     <PageTransition>
       <div className="relative min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-24 pb-12 overflow-hidden">
           {/* Background Motif */}
           <div className="absolute inset-0 motif-bg opacity-40" />
           
           <div className="container relative z-10">
             <div className={heroImage ? "grid lg:grid-cols-2 gap-12 items-center" : "text-center max-w-4xl mx-auto"}>
               {/* Left Content */}
-              <div className={heroImage ? "flex flex-col items-start space-y-6 text-left" : "flex flex-col items-center space-y-6 text-center"}>
+              <div className={heroImage ? "flex flex-col items-start space-y-4 text-left" : "flex flex-col items-center space-y-4 text-center"}>
                 {eyebrow && (
                   <p className="text-[11px] uppercase tracking-[0.4em] text-primary font-bold animate-fade-in">
                     {eyebrow}
@@ -42,7 +42,7 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
                 <p className="text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed animate-slide-up delay-100">
                   {subtitle}
                 </p>
-                <div className="flex items-center gap-4 pt-4 animate-fade-in delay-200">
+                <div className="flex items-center gap-4 pt-2 animate-fade-in delay-200">
                   <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-medium">
                     {products.length} PIECES
                   </span>
@@ -70,11 +70,11 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
 
         {/* Filter Bar */}
         <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-y border-border/60 shadow-sm">
-          <div className="container py-4">
+          <div className="container py-3">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <Select>
-                  <SelectTrigger className="w-[140px] h-10 text-[10px] uppercase tracking-widest bg-transparent border-border/60 hover:border-primary/50 transition-colors">
+                  <SelectTrigger className="w-[140px] h-9 text-[10px] uppercase tracking-widest bg-transparent border-border/60 hover:border-primary/50 transition-colors">
                     <SelectValue placeholder="FABRIC" />
                   </SelectTrigger>
                   <SelectContent>
@@ -86,7 +86,7 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
                 </Select>
 
                 <Select>
-                  <SelectTrigger className="w-[140px] h-10 text-[10px] uppercase tracking-widest bg-transparent border-border/60 hover:border-primary/50 transition-colors">
+                  <SelectTrigger className="w-[140px] h-9 text-[10px] uppercase tracking-widest bg-transparent border-border/60 hover:border-primary/50 transition-colors">
                     <SelectValue placeholder="SIZE" />
                   </SelectTrigger>
                   <SelectContent>
@@ -105,7 +105,7 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
                   SORT BY
                 </div>
                 <Select defaultValue="newest">
-                  <SelectTrigger className="w-[180px] h-10 text-[10px] uppercase tracking-widest bg-transparent border-border/60 hover:border-primary/50 transition-colors">
+                  <SelectTrigger className="w-[180px] h-9 text-[10px] uppercase tracking-widest bg-transparent border-border/60 hover:border-primary/50 transition-colors">
                     <SelectValue placeholder="SORT BY" />
                   </SelectTrigger>
                   <SelectContent>
@@ -120,10 +120,13 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
         </div>
 
         {/* Product Grid */}
-        <section className="py-20 relative min-h-[40vh]">
-          <div className="container">
+        <section className="py-12 relative min-h-[60vh] overflow-hidden">
+          {/* Background Motif for Products Area */}
+          <div className="absolute inset-0 motif-bg opacity-30" />
+          
+          <div className="container relative z-10">
             {products.length === 0 ? (
-              <div className="text-center py-32 animate-fade-in">
+              <div className="text-center py-20 animate-fade-in">
                 <div className="gold-divider mx-auto mb-8" />
                 <p className="font-serif italic text-3xl text-muted-foreground/60">
                   The collection is currently resting.
@@ -133,7 +136,7 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
                 </p>
               </div>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16 md:gap-x-12 md:gap-y-20 animate-stagger-fade-in">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12 md:gap-x-12 md:gap-y-16 animate-stagger-fade-in">
                 {products.map((p, i) => (
                   <ProductCard key={p.id} product={p} index={i} />
                 ))}
@@ -141,6 +144,8 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
             )}
           </div>
         </section>
+
+
       </div>
     </PageTransition>
   );

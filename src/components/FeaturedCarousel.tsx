@@ -4,6 +4,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Product } from "@/data/products";
 import { formatINR } from "@/data/products";
+import { cn } from "@/lib/utils";
+
 
 interface Props {
   items: Product[];

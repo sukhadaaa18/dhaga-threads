@@ -141,8 +141,8 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="bg-background border-b border-primary/5">
-        <div className="container py-4 text-xs text-muted-foreground uppercase tracking-widest">
+      <div className="bg-background">
+        <div className="container py-3 text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
           <Link to="/" className="hover:text-primary transition-colors">Home</Link>
           <span className="mx-2 opacity-30">/</span>
           <Link to={CATEGORY_META[product.category]?.path || "/"} className="hover:text-primary transition-colors">
@@ -154,11 +154,12 @@ const ProductDetail = () => {
       </div>
 
 
-      <section className="bg-gradient-blush pt-10 pb-14 md:pb-20 relative overflow-hidden">
+      <section className="bg-gradient-blush pt-2 pb-14 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 motif-bg opacity-30" />
 
         <div className="container relative">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

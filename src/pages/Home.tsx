@@ -48,7 +48,8 @@ const Home = () => {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-blush border-b border-primary/5 pt-20 pb-12 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-gradient-blush border-b border-primary/5 pt-12 pb-12 md:pt-16 md:pb-20">
+
         <div className="absolute inset-0 motif-bg opacity-10" />
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

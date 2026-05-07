@@ -163,8 +163,9 @@ const ProductDetail = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="gold-frame bg-card w-full md:sticky md:top-28"
+              className="gold-frame bg-card w-full max-w-[520px] mx-auto md:sticky md:top-28"
             >
+
 
               <div className="overflow-hidden">
                 <img

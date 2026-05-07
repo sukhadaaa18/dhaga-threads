@@ -427,6 +427,12 @@ const ProductDetail = () => {
             animate={{ scale: 1, opacity: 1 }}
             className="bg-card border border-border w-full max-w-md p-10 text-center gold-frame relative overflow-hidden"
           >
+            <button
+              onClick={() => setShowConfirmModal(false)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-primary transition-colors z-10"
+            >
+              <X size={20} />
+            </button>
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mx-auto mb-6">
               <Calendar size={30} />
@@ -482,6 +488,12 @@ const ProductDetail = () => {
             animate={{ scale: 1, opacity: 1 }}
             className="bg-card border border-border w-full max-w-md p-10 text-center gold-frame relative overflow-hidden"
           >
+            <button
+              onClick={() => setShowSuccessModal(false)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-primary transition-colors z-10"
+            >
+              <X size={20} />
+            </button>
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mx-auto mb-6 border border-primary/20">
               <Award size={40} />
@@ -502,7 +514,7 @@ const ProductDetail = () => {
               onClick={() => setShowSuccessModal(false)}
               className="mt-4 text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground underline transition-colors"
             >
-              Continue Browsing
+              Close
             </button>
             <div className="mt-6 text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
               DHAGA — Exclusive Atelier
@@ -510,6 +522,7 @@ const ProductDetail = () => {
           </motion.div>
         </div>
       )}
+
       {showSizeGuide && (
         <div className="fixed inset-0 z-[200] bg-foreground/40 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
           <div className="bg-card border border-border w-full max-w-2xl p-8 gold-frame animate-scale-in relative">

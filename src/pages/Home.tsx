@@ -48,58 +48,62 @@ const Home = () => {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-blush border-b border-primary/5">
+      <section className="relative overflow-hidden bg-gradient-blush border-b border-primary/5 pt-20 pb-12 md:pt-32 md:pb-20">
         <div className="absolute inset-0 motif-bg opacity-10" />
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col items-start space-y-8"
+            >
+              <div className="space-y-4">
+                <h1 className="font-serif text-5xl md:text-6xl lg:text-8xl leading-[1.05] text-foreground text-balance">
+                  Elegance Woven<br />
+                  <span className="italic text-primary">in Every Thread</span>
+                </h1>
+                <p className="text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
+                  Timeless Indian silhouettes, handcrafted with care and intention —
+                  pieces you don’t just wear for a moment, but return to, again and again.
+                </p>
+              </div>
 
-        <div className="container relative grid md:grid-cols-2 items-center min-h-[78vh] gap-10 py-10 md:py-14">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="z-10 order-2 md:order-1"
-          >
+              <div className="flex flex-wrap items-center gap-8 pt-4">
+                <Link
+                  to="/new-arrivals"
+                  className="bg-foreground text-background px-10 py-5 text-[11px] uppercase tracking-[0.3em] hover:bg-primary transition-all duration-500 shadow-xl"
+                >
+                  Shop Now
+                </Link>
+                <Link
+                  to="/new-arrivals"
+                  className="text-[11px] uppercase tracking-[0.3em] text-foreground font-bold border-b border-primary/40 pb-1 hover:border-primary transition-colors"
+                >
+                  Explore New Arrivals →
+                </Link>
+              </div>
+            </motion.div>
 
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.02] text-foreground mb-5 text-balance">
-              Elegance Woven<br />
-              <span className="italic text-primary">in Every Thread</span>
-            </h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-md leading-relaxed mb-8">
-              Timeless Indian silhouettes, handcrafted with care and intention —
-              pieces you don’t just wear for a moment, but return to, again and again.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/new-arrivals"
-                className="group shimmer bg-foreground text-background px-8 py-4 text-xs uppercase tracking-[0.25em] hover:bg-primary transition-colors"
-              >
-                Shop Now
-              </Link>
-              <Link
-                to="/new-arrivals"
-                className="text-xs uppercase tracking-[0.25em] text-foreground border-b border-primary/50 px-2 pb-1 hover:text-primary hover:border-primary transition-colors self-end mb-2"
-              >
-                Explore New Arrivals →
-              </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative order-1 md:order-2"
-          >
-            <div className="absolute -inset-4 border border-primary/20 hidden md:block" />
-            <div className="relative aspect-[4/5] overflow-hidden shadow-luxe bg-muted">
-              <img
-                src={heroImg}
-                alt="Model in handcrafted Indian wear"
-                width={1200}
-                height={1500}
-                className="w-full h-full object-cover object-[center_25%] transition-transform duration-[2000ms] hover:scale-105"
-              />
-            </div>
-          </motion.div>
+            {/* Right Hero Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+              className="relative group"
+            >
+              <div className="gold-frame aspect-[4/5] overflow-hidden shadow-2xl">
+                <img
+                  src={heroImg}
+                  alt="Model in handcrafted Indian wear"
+                  className="w-full h-full object-cover object-[center_25%] transition-transform duration-[2500ms] group-hover:scale-110"
+                />
+              </div>
+              {/* Subtle decorative overlay */}
+              <div className="absolute -inset-6 border border-primary/10 -z-10 animate-pulse-slow hidden md:block" />
+            </motion.div>
+          </div>
         </div>
       </section>
 

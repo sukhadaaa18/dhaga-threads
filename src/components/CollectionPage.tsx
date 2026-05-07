@@ -23,9 +23,9 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
     <PageTransition>
       <div className="relative min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="relative pt-24 pb-12 overflow-hidden">
-          {/* Background Motif */}
-          <div className="absolute inset-0 motif-bg opacity-40" />
+        <section className="relative pt-24 pb-12 overflow-hidden bg-background">
+          {/* Background Motif - Extremely Subtle */}
+          <div className="absolute inset-0 motif-bg opacity-10" />
           
           <div className="container relative z-10">
             <div className={heroImage ? "grid lg:grid-cols-2 gap-12 items-center" : "text-center max-w-4xl mx-auto"}>
@@ -120,9 +120,9 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
         </div>
 
         {/* Product Grid */}
-        <section className="py-12 relative min-h-[60vh] overflow-hidden">
-          {/* Background Motif for Products Area */}
-          <div className="absolute inset-0 motif-bg opacity-30" />
+        <section className="py-12 relative min-h-[60vh] overflow-hidden bg-white">
+          {/* Background Motif for Products Area - Ghost Opacity */}
+          <div className="absolute inset-0 motif-bg opacity-[0.03]" />
           
           <div className="container relative z-10">
             {products.length === 0 ? (
@@ -144,6 +144,7 @@ export const CollectionPage = ({ eyebrow, title, subtitle, products, heroImage }
             )}
           </div>
         </section>
+
 
 
       </div>

@@ -108,9 +108,8 @@ const Home = () => {
       </section>
 
       {/* CATEGORY TILES — all 6 */}
-      <section className="py-14 md:py-16 bg-background relative overflow-hidden">
-
-        <div className="absolute inset-0 motif-bg opacity-40" />
+      <section className="py-14 md:py-20 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 motif-bg opacity-15" />
 
         <div className="container relative">
           <SectionHeading
@@ -156,9 +155,8 @@ const Home = () => {
 
       {/* FEATURED CAROUSEL */}
       {featured.length > 0 && (
-        <section className="py-14 md:py-16 bg-gradient-luxe relative overflow-hidden border-y border-primary/5">
-
-          <div className="absolute inset-0 motif-bg opacity-30" />
+        <section className="py-14 md:py-20 bg-gradient-luxe relative overflow-hidden border-y border-primary/5">
+          <div className="absolute inset-0 motif-bg opacity-10" />
 
           <div className="container relative">
             <SectionHeading
@@ -174,9 +172,8 @@ const Home = () => {
       )}
 
       {/* DHAGA REELS */}
-      <section className="py-14 md:py-16 bg-secondary/20 relative overflow-hidden">
-
-        <div className="absolute inset-0 motif-bg opacity-40" />
+      <section className="py-14 md:py-20 bg-secondary/10 relative overflow-hidden">
+        <div className="absolute inset-0 motif-bg opacity-15" />
 
         <div className="container relative grid lg:grid-cols-2 items-center gap-12 lg:gap-16">
           <div className="order-2 lg:order-1">
@@ -223,7 +220,7 @@ const Home = () => {
 
       {festiveItems.length > 0 && (
         <section className="py-14 md:py-20 bg-background relative overflow-hidden">
-          <div className="absolute inset-0 motif-bg" />
+          <div className="absolute inset-0 motif-bg opacity-10" />
           <div className="container relative">
             <div className="flex items-end justify-between mb-10 flex-wrap gap-6">
               <SectionHeading
@@ -250,9 +247,8 @@ const Home = () => {
 
       {/* BEST SELLERS */}
       {bestSellers.length > 0 && (
-        <section className="py-14 md:py-16 bg-secondary/30 relative overflow-hidden border-y border-primary/5">
-
-          <div className="absolute inset-0 motif-bg opacity-30" />
+        <section className="py-14 md:py-20 bg-secondary/20 relative overflow-hidden border-y border-primary/5">
+          <div className="absolute inset-0 motif-bg opacity-10" />
 
           <div className="container relative">
             <SectionHeading
@@ -272,7 +268,7 @@ const Home = () => {
       {/* NEW ARRIVALS STRIP */}
       {newArrivals.length > 0 && (
         <section className="py-14 md:py-20 bg-background relative overflow-hidden">
-          <div className="absolute inset-0 motif-bg" />
+          <div className="absolute inset-0 motif-bg opacity-10" />
           <div className="container relative">
             <div className="flex items-end justify-between mb-10 flex-wrap gap-6">
               <SectionHeading align="left" eyebrow="Just Arrived" title="New This Season" />
@@ -293,9 +289,8 @@ const Home = () => {
       )}
 
       {/* QUOTE STRIP */}
-      <section className="py-14 md:py-16 bg-gradient-luxe relative overflow-hidden">
-
-        <div className="absolute inset-0 motif-bg opacity-40" />
+      <section className="py-14 md:py-20 bg-gradient-luxe relative overflow-hidden">
+        <div className="absolute inset-0 motif-bg opacity-15" />
 
         <div className="container relative text-center max-w-3xl">
           <p className="text-primary text-2xl mb-4">✦</p>

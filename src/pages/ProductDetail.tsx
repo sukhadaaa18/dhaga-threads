@@ -154,77 +154,75 @@ const ProductDetail = () => {
       </div>
 
 
-      <section className="bg-background pt-10 pb-14 md:pb-20 relative overflow-hidden">
-        {/* Subtle Motif Background */}
-        <div className="absolute inset-0 motif-bg opacity-[0.08]" />
+      <section className="bg-gradient-blush pt-10 pb-14 md:pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 motif-bg opacity-30" />
 
-        <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-start">
-            {/* Left: Product Image */}
+        <div className="container relative">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="md:sticky md:top-28"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="gold-frame bg-card w-full md:sticky md:top-28"
             >
-              <div className="gold-frame bg-card overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-[1.01]">
+              <div className="overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-auto block object-cover"
+                  className="w-full h-auto block"
                 />
               </div>
             </motion.div>
 
-            {/* Right: Product Info */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="flex flex-col justify-center"
             >
-              <div className="mb-8">
-                {product.tag && (
-                  <span className="inline-block text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-4 px-3 py-1 border border-primary/20 rounded-full bg-primary/5">
-                    {product.tag}
+              {product.tag && (
+                <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-primary mb-2 md:mb-4 font-bold">
+                  {product.tag}
+                </p>
+              )}
+              <h1 className="font-serif text-3xl md:text-5xl text-foreground mb-4 leading-[1.05]">
+                {product.name}
+              </h1>
+              <div className="flex items-center gap-4 mb-6">
+                <span className="font-serif text-2xl text-primary">
+                  {formatINR(product.price)}
+                </span>
+                {product.originalPrice && (
+                  <span className="text-muted-foreground line-through">
+                    {formatINR(product.originalPrice)}
                   </span>
                 )}
-                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 leading-tight">
-                  {product.name}
-                </h1>
-                <div className="flex items-center gap-5">
-                  <span className="font-serif text-3xl text-primary font-light">
-                    {formatINR(product.price)}
+                {product.originalPrice && (
+                  <span className="text-xs uppercase tracking-[0.2em] text-primary border border-primary/40 px-2 py-1">
+                    {Math.round((1 - product.price / product.originalPrice) * 100)}% off
                   </span>
-                  {product.originalPrice && (
-                    <span className="text-muted-foreground/60 line-through text-lg">
-                      {formatINR(product.originalPrice)}
-                    </span>
-                  )}
-                </div>
+                )}
               </div>
 
-              <div className="space-y-6 mb-10 border-y border-primary/5 py-8">
-                <p className="text-muted-foreground leading-relaxed italic text-base md:text-lg">
-                  "{product.description}"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-                  <p className="text-[11px] uppercase tracking-[0.3em] text-foreground font-bold">
-                    {product.fabric}
-                  </p>
+              {product.isOutOfStock && (
+                <div className="mb-6 p-4 bg-destructive/5 border border-destructive/20 text-destructive text-center font-bold text-xs uppercase tracking-[0.2em] gold-frame-thin animate-pulse">
+                  Sold Out — This piece is currently unavailable
                 </div>
-              </div>
+              )}
 
-              {/* Size Selection */}
-              <div className="mb-10">
-                <div className="flex items-center justify-between mb-5">
-                  <p className="text-[11px] uppercase tracking-[0.3em] text-foreground font-bold">Select Size</p>
-                  <button onClick={() => setShowSizeGuide(true)} className="text-[10px] uppercase tracking-widest text-primary border-b border-primary/30 hover:border-primary transition-all">
-                    Size Guide ↗
-                  </button>
+              <p className="text-muted-foreground leading-relaxed mb-3">
+                {product.description}
+              </p>
+              <p className="text-xs uppercase tracking-[0.2em] text-primary mb-8">
+                {product.fabric}
+              </p>
+
+              <div className="mb-8">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-xs uppercase tracking-[0.25em] text-foreground font-bold">Select Size</p>
+                  <button onClick={() => setShowSizeGuide(true)} className="text-[10px] uppercase tracking-widest text-primary hover:underline">Size Guide ↗</button>
                 </div>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-3">
                   {ALL_SIZES.map((s) => {
                     const isSoldOut = product.outOfStockSizes?.includes(s) || product.isOutOfStock;
                     return (
@@ -233,18 +231,18 @@ const ProductDetail = () => {
                         disabled={isSoldOut}
                         onClick={() => setSize(s)}
                         className={cn(
-                          "w-12 h-12 rounded-full border text-[11px] font-bold transition-all duration-500 flex items-center justify-center relative",
+                          "w-12 h-12 border text-sm transition-all relative overflow-hidden flex items-center justify-center font-medium",
                           size === s && !isSoldOut
-                            ? "bg-foreground text-background border-foreground shadow-lg scale-110"
+                            ? "border-primary bg-primary text-primary-foreground shadow-md scale-105"
                             : isSoldOut
-                              ? "bg-muted/10 text-muted-foreground/30 border-dashed border-border/40 cursor-not-allowed"
-                              : "bg-transparent text-foreground/60 border-border/60 hover:border-primary hover:text-primary"
+                              ? "border-border/40 bg-muted/30 text-muted-foreground/40 cursor-not-allowed"
+                              : "border-border hover:border-primary hover:text-primary"
                         )}
                       >
-                        {s}
+                        <span>{s}</span>
                         {isSoldOut && (
                           <div className="absolute inset-0 flex items-center justify-center opacity-40">
-                            <div className="w-6 h-[1px] bg-muted-foreground/50 rotate-45" />
+                            <div className="w-[150%] h-[1px] bg-muted-foreground rotate-45" />
                           </div>
                         )}
                       </button>
@@ -253,56 +251,102 @@ const ProductDetail = () => {
                 </div>
               </div>
 
-              {/* Reservation / Boutique Visit - Cleaner Glass Card */}
-              <div className="mb-12 p-8 glass-card border-primary/10 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <Calendar size={60} />
-                </div>
-                
-                <div className="relative z-10">
-                  <p className="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-2">Private Experience</p>
-                  <h3 className="font-serif text-2xl mb-4">Boutique Appointment</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                    Experience this piece in person at our Kolhapur atelier. 
-                    We will reserve it exclusively for you for 8 days.
-                  </p>
-
-                  <div className="grid gap-6">
-                    <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-[0.2em] text-foreground/60 font-bold ml-1">Visit Date</label>
-                      <input
-                        type="date"
-                        min={new Date().toISOString().split('T')[0]}
-                        value={bookingDate}
-                        onChange={(e) => setBookingDate(e.target.value)}
-                        className="w-full bg-background/50 border border-primary/20 p-4 text-sm outline-none focus:border-primary/60 transition-all font-serif"
-                      />
-                    </div>
-
-                    <button
-                      disabled={bookingLoading || isRequested || product.isOutOfStock}
-                      onClick={handleReserve}
-                      className={cn(
-                        "w-full py-4 text-[11px] uppercase tracking-[0.4em] transition-all duration-500 font-bold",
-                        isRequested
-                          ? "bg-green-500/10 text-green-600 border border-green-200"
-                          : "bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white"
-                      )}
-                    >
-                      {bookingLoading ? (
-                        <Loader2 size={16} className="animate-spin mx-auto" />
-                      ) : isRequested ? (
-                        "Request Received"
-                      ) : (
-                        "Request Reservation"
-                      )}
-                    </button>
+              {/* Reservation Section - Store Visit Concept */}
+              <div className="mb-10 p-7 border border-primary/20 bg-secondary/20 gold-frame animate-fade-in shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <Calendar size={18} />
                   </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.3em] text-primary font-bold">Boutique Appointment</p>
+                    <h2 className="font-serif text-2xl text-foreground">Reserve for Store Visit</h2>
+                  </div>
+                </div>
+
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 font-medium">
+                  Reserve this outfit for an in-store visit. Choose the date you plan to visit our boutique. Once confirmed, the product will remain reserved for you for up to 8 days.
+                </p>
+
+                <div className="space-y-6">
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[11px] uppercase tracking-[0.2em] text-foreground font-semibold ml-1">Choose Your Visit Date</label>
+                    <input
+                      type="date"
+                      min={new Date().toISOString().split('T')[0]}
+                      max={new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
+                      value={bookingDate}
+                      onChange={(e) => setBookingDate(e.target.value)}
+                      className="w-full bg-card border border-primary/30 p-4 text-base outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all font-serif gold-frame-thin"
+                    />
+                    <p className="text-[10px] text-muted-foreground mt-2 ml-1 italic">
+                      * Selection is for your visit start. We hold the piece for 8 days upon confirmation.
+                    </p>
+                  </div>
+
+                  {bookedDates.length > 0 && (
+                    <div className="bg-primary/5 p-3 border border-primary/10 rounded">
+                      <p className="text-[10px] uppercase tracking-widest text-primary font-bold mb-2">Currently Reserved Dates:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {bookedDates.map((d, i) => (
+                          <span key={i} className="text-[9px] bg-background px-2 py-1 border border-border">
+                            {formatDate(d.startDate)} - {formatDate(d.endDate)}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <button
+                    disabled={bookingLoading || isRequested || product.isOutOfStock}
+                    onClick={handleReserve}
+                    className={cn(
+                      "w-full py-4 text-xs uppercase tracking-[0.3em] transition-all duration-500 flex items-center justify-center gap-2 shadow-md",
+                      isRequested
+                        ? "bg-green-500/10 text-green-600 border border-green-200 cursor-default"
+                        : product.isOutOfStock
+                          ? "bg-muted text-muted-foreground border border-border cursor-not-allowed"
+                          : "bg-primary text-primary-foreground hover:bg-foreground"
+                    )}
+                  >
+                    {bookingLoading ? (
+                      <Loader2 size={16} className="animate-spin" />
+                    ) : isRequested ? (
+                      <>
+                        <CheckCircle size={16} /> Request Sent
+                      </>
+                    ) : product.isOutOfStock ? (
+                      "Inventory Unavailable"
+                    ) : (
+                      "Request Reservation"
+                    )}
+                  </button>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-primary/10">
+                  <details className="group">
+                    <summary className="list-none cursor-pointer flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-primary font-bold">
+                      <span>How It Works</span>
+                      <span className="transition-transform duration-300 group-open:rotate-180">↓</span>
+                    </summary>
+                    <ul className="space-y-3 mt-5 animate-fade-in">
+                      {[
+                        "Submit your reservation request",
+                        "Our boutique team will call to confirm availability",
+                        "Your outfit gets reserved",
+                        "Visit the store within the reservation period",
+                        "Purchase only if you love it"
+                      ].map((step, i) => (
+                        <li key={i} className="flex gap-3 text-xs text-muted-foreground items-start">
+                          <span className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[10px] flex-shrink-0 font-bold">{i + 1}</span>
+                          <span className="pt-0.5">{step}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <div className="flex gap-3 mb-10">
                 <button
                   disabled={product.isOutOfStock}
                   onClick={() => {
@@ -314,47 +358,53 @@ const ProductDetail = () => {
                     navigate("/cart");
                   }}
                   className={cn(
-                    "flex-[2] py-5 text-[11px] uppercase tracking-[0.4em] font-bold transition-all duration-500 shadow-xl",
+                    "flex-1 px-6 py-4 text-xs uppercase tracking-[0.25em] transition-all duration-300 flex items-center justify-center gap-2",
                     product.isOutOfStock
                       ? "bg-muted text-muted-foreground cursor-not-allowed"
                       : inCart
-                        ? "bg-green-600 text-white"
+                        ? "bg-green-50 text-green-600 border border-green-200 hover:bg-green-100"
                         : "bg-foreground text-background hover:bg-primary"
                   )}
                 >
-                  {product.isOutOfStock ? "Out of Stock" : inCart ? "View in Bag" : "Add to Cart"}
+                  {product.isOutOfStock ? (
+                    <ShoppingBag size={14} />
+                  ) : inCart ? (
+                    <CheckCircle size={14} />
+                  ) : (
+                    <ShoppingBag size={14} />
+                  )}
+                  {product.isOutOfStock ? "Out of Stock" : inCart ? "Already in Bag" : "Add to Cart"}
                 </button>
-                
                 <button
                   onClick={() => toggleWish(product.id)}
                   className={cn(
-                    "flex-1 py-5 border flex items-center justify-center gap-3 text-[11px] uppercase tracking-[0.3em] font-bold transition-all",
-                    wished ? "bg-primary/5 border-primary text-primary" : "border-border hover:border-primary/40 text-foreground/60 hover:text-primary"
+                    "w-14 h-14 border flex items-center justify-center transition-colors",
+                    wished ? "border-primary text-primary" : "border-border hover:border-primary"
                   )}
+                  aria-label="Wishlist"
                 >
                   <Heart size={16} fill={wished ? "currentColor" : "none"} />
-                  {wished ? "Saved" : "Save"}
                 </button>
               </div>
 
-              {/* Trust Badges - Cleaner Horizontal Layout */}
-              <div className="flex items-center justify-between py-6 border-t border-primary/5">
-                {[
-                  { icon: Truck, label: "Free Shipping" },
-                  { icon: Award, label: "Handcrafted" },
-                  { icon: RefreshCw, label: "Easy Returns" }
-                ].map((item, i) => (
-                  <div key={i} className="flex flex-col items-center text-center gap-2">
-                    <item.icon size={18} className="text-primary/60" strokeWidth={1.2} />
-                    <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground font-medium">{item.label}</span>
-                  </div>
-                ))}
+              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border/60 text-center text-xs">
+                <div>
+                  <Truck className="mx-auto mb-2 text-primary" size={18} />
+                  <p className="text-muted-foreground">Free shipping<br />over ₹5,000</p>
+                </div>
+                <div>
+                  <Award className="mx-auto mb-2 text-primary" size={18} />
+                  <p className="text-muted-foreground">Handcrafted<br />in India</p>
+                </div>
+                <div>
+                  <RefreshCw className="mx-auto mb-2 text-primary" size={18} />
+                  <p className="text-muted-foreground">Easy 7-day<br />exchange</p>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-
 
       {related.length > 0 && (
         <section className="py-14 md:py-24 bg-secondary/20 relative overflow-hidden border-t border-primary/5">

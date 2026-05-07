@@ -141,20 +141,22 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="bg-gradient-blush">
-        <div className="container py-6 text-xs text-muted-foreground">
-          <Link to="/" className="hover:text-primary">Home</Link>
-          <span className="mx-2">/</span>
-          <Link to={CATEGORY_META[product.category]?.path || "/"} className="hover:text-primary">
+      <div className="bg-background border-b border-primary/5">
+        <div className="container py-4 text-xs text-muted-foreground uppercase tracking-widest">
+          <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+          <span className="mx-2 opacity-30">/</span>
+          <Link to={CATEGORY_META[product.category]?.path || "/"} className="hover:text-primary transition-colors">
             {CATEGORY_META[product.category]?.label || product.category}
           </Link>
-          <span className="mx-2">/</span>
-          <span className="text-foreground">{product.name}</span>
+          <span className="mx-2 opacity-30">/</span>
+          <span className="text-foreground font-medium">{product.name}</span>
         </div>
       </div>
 
-      <section className="bg-gradient-blush pb-14 md:pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 motif-bg" />
+
+      <section className="bg-gradient-blush pt-10 pb-14 md:pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 motif-bg opacity-30" />
+
         <div className="container relative">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
             <motion.div
@@ -405,8 +407,9 @@ const ProductDetail = () => {
       </section>
 
       {related.length > 0 && (
-        <section className="py-14 md:py-20 bg-background relative overflow-hidden">
-          <div className="absolute inset-0 motif-bg" />
+        <section className="py-14 md:py-24 bg-secondary/20 relative overflow-hidden border-t border-primary/5">
+          <div className="absolute inset-0 motif-bg opacity-40" />
+
           <div className="container relative">
             <h2 className="font-serif text-3xl md:text-4xl text-center mb-14">You May Also Love</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">

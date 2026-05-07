@@ -157,7 +157,8 @@ const Home = () => {
 
       {/* FEATURED CAROUSEL */}
       {featured.length > 0 && (
-        <section className="py-14 md:py-28 bg-blush/20 relative overflow-hidden border-y border-primary/5">
+        <section className="py-14 md:py-28 bg-gradient-blush relative overflow-hidden border-y border-primary/5">
+
 
 
           <div className="absolute inset-0 motif-bg opacity-[0.05]" />

@@ -110,7 +110,8 @@ const Home = () => {
       </section>
 
       {/* CATEGORY TILES — all 6 */}
-      <section className="py-14 md:py-20 bg-background relative overflow-hidden">
+      <section className="py-14 md:py-20 bg-blush/10 relative overflow-hidden">
+
         <div className="absolute inset-0 motif-bg opacity-15" />
 
         <div className="container relative">

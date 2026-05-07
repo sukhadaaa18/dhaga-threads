@@ -159,12 +159,11 @@ const ProductDetail = () => {
 
         <div className="container relative">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="gold-frame bg-card w-full md:sticky md:top-28"
+              className="gold-frame bg-card w-full max-w-[480px] mx-auto md:sticky md:top-28"
             >
               <div className="overflow-hidden">
                 <img
@@ -181,7 +180,6 @@ const ProductDetail = () => {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="flex flex-col justify-start"
             >
-
               {product.tag && (
                 <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-primary mb-2 md:mb-4 font-bold">
                   {product.tag}
@@ -191,9 +189,10 @@ const ProductDetail = () => {
                 {product.name}
               </h1>
               <div className="flex items-center gap-4 mb-6">
-                <span className="font-serif text-2xl text-primary">
+                <span className="font-serif text-3xl text-primary">
                   {formatINR(product.price)}
                 </span>
+
                 {product.originalPrice && (
                   <span className="text-muted-foreground line-through">
                     {formatINR(product.originalPrice)}

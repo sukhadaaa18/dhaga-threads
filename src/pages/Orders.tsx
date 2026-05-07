@@ -228,16 +228,9 @@ const Orders = () => {
                   <div className="p-6 space-y-6">
                     {order.items.map((item: any, idx: number) => (
                       <div key={idx} className="flex gap-4 items-center">
-                        <div className="w-16 h-20 bg-muted border border-border flex-shrink-0 overflow-hidden">
-                          {item.image ? (
-                            <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center text-muted-foreground/30">
-                              <Package size={20} />
-                            </div>
-                          )}
+                        <div className="w-16 h-20 bg-muted border border-border flex-shrink-0 flex items-center justify-center text-muted-foreground/30">
+                           <Package size={20} />
                         </div>
-
                         <div className="flex-1">
                           <h4 className="font-serif text-lg leading-tight">{item.name}</h4>
                           <p className="text-xs text-muted-foreground uppercase tracking-[0.1em] mt-1">

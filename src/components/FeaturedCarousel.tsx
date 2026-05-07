@@ -121,9 +121,9 @@ export const FeaturedCarousel = ({ items }: Props) => {
                   draggable={false}
                 >
                   <div
-                    className={`relative gold-frame bg-card transition-shadow duration-500 ${
-                      isCenter ? "shadow-luxe" : "shadow-card"
-                    } ${isCenter ? "hover:shadow-glow" : ""}`}
+                    className={`relative gold-frame bg-card transition-all duration-700 ${
+                      isCenter ? "shadow-luxe border-primary/40 scale-[1.02]" : "shadow-card border-border/40"
+                    } ${isCenter ? "shadow-[0_20px_50px_-12px_rgba(197,165,114,0.3)]" : ""}`}
                   >
                     <div className="relative aspect-[4/5] overflow-hidden">
                       <img
@@ -133,13 +133,20 @@ export const FeaturedCarousel = ({ items }: Props) => {
                         draggable={false}
                         width={800}
                         height={1024}
-                        className="w-full h-full object-cover"
+                        className={cn(
+                          "w-full h-full object-cover transition-transform duration-[2000ms]",
+                          isCenter ? "scale-100" : "scale-105 saturate-[0.8]"
+                        )}
                       />
                       {isCenter && (
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                        <>
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                          <div className="absolute inset-0 border-[8px] border-white/5 pointer-events-none" />
+                        </>
                       )}
                     </div>
                   </div>
+
                 </Link>
               </motion.div>
             );

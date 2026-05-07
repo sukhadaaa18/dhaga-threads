@@ -155,21 +155,24 @@ const Home = () => {
 
       {/* FEATURED CAROUSEL */}
       {featured.length > 0 && (
-        <section className="py-14 md:py-20 bg-gradient-luxe relative overflow-hidden border-y border-primary/5">
-          <div className="absolute inset-0 motif-bg opacity-10" />
-
+        <section className="py-14 md:py-28 bg-white relative overflow-hidden border-y border-primary/5">
+          <div className="absolute inset-0 motif-bg opacity-[0.05]" />
           <div className="container relative">
-            <SectionHeading
-              eyebrow="The Atelier"
-              title="Featured Collection"
-              subtitle="A curation of our most loved pieces — each one a slow conversation between thread, hand and heart."
-            />
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <p className="text-[11px] uppercase tracking-[0.4em] text-primary font-bold mb-4">The Atelier Edit</p>
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-tight">Handpicked Curations</h2>
+              <div className="w-20 h-px bg-primary/30 mx-auto mb-6" />
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed italic">
+                "A selection of our most loved silhouettes — where every thread tells a story of heritage and heart."
+              </p>
+            </div>
             <div className="mt-10">
               <FeaturedCarousel items={featured} />
             </div>
           </div>
         </section>
       )}
+
 
       {/* DHAGA REELS */}
       <section className="py-14 md:py-20 bg-secondary/10 relative overflow-hidden">

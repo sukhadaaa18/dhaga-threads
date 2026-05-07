@@ -9,8 +9,9 @@
 @layer base {
   :root {
     /* Pastel luxury palette */
-    --background: 20 30% 97%;          /* warm blush-ivory */
+    --background: 10 45% 97.5%;        /* pastel blush-ivory */
     --foreground: 25 25% 18%;          /* deep ink brown */
+
 
 
     --card: 36 50% 99%;
@@ -46,17 +47,19 @@
     /* Brand custom tokens */
     --gold: 36 50% 55%;
     --gold-soft: 36 60% 78%;
-    --blush: 15 40% 94%;
-    --blush-deep: 15 35% 85%;
+    --blush: 10 45% 95%;
+    --blush-deep: 10 40% 88%;
     --sage: 110 22% 70%;
-    --ivory: 20 30% 97%;
+    --ivory: 10 45% 97.5%;
     --beige: 32 30% 88%;
 
 
-    --gradient-luxe: linear-gradient(135deg, hsl(20 30% 97%) 0%, hsl(15 40% 94%) 50%, hsl(36 35% 92%) 100%);
+
+    --gradient-luxe: linear-gradient(135deg, hsl(10 45% 97.5%) 0%, hsl(10 45% 95%) 50%, hsl(36 35% 92%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(36 50% 65%), hsl(36 45% 50%));
-    --gradient-blush: linear-gradient(180deg, hsl(15 40% 96%) 0%, hsl(20 30% 97%) 100%);
+    --gradient-blush: linear-gradient(180deg, hsl(10 45% 96%) 0%, hsl(10 45% 97.5%) 100%);
     --gradient-sage: linear-gradient(135deg, hsl(110 22% 82%), hsl(110 18% 70%));
+
 
 
     --shadow-soft: 0 10px 40px -15px hsl(25 25% 18% / 0.08);

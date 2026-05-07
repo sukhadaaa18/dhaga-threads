@@ -51,7 +51,7 @@ const Home = () => {
       <section className="relative overflow-hidden bg-gradient-blush border-b border-primary/5 pt-20 pb-12 md:pt-32 md:pb-20">
         <div className="absolute inset-0 motif-bg opacity-10" />
         <div className="container relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-12 lg:gap-20 items-center">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -59,12 +59,12 @@ const Home = () => {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col items-start space-y-8"
             >
-              <div className="space-y-4">
-                <h1 className="font-serif text-5xl md:text-6xl lg:text-8xl leading-[1.05] text-foreground text-balance">
+              <div className="space-y-6">
+                <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground text-balance">
                   Elegance Woven<br />
                   <span className="italic text-primary">in Every Thread</span>
                 </h1>
-                <p className="text-base md:text-lg text-muted-foreground max-w-md leading-relaxed">
+                <p className="text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed">
                   Timeless Indian silhouettes, handcrafted with care and intention —
                   pieces you don’t just wear for a moment, but return to, again and again.
                 </p>
@@ -73,7 +73,7 @@ const Home = () => {
               <div className="flex flex-wrap items-center gap-8 pt-4">
                 <Link
                   to="/new-arrivals"
-                  className="bg-foreground text-background px-10 py-5 text-[11px] uppercase tracking-[0.3em] hover:bg-primary transition-all duration-500 shadow-xl"
+                  className="bg-foreground text-background px-10 py-4.5 text-[11px] uppercase tracking-[0.3em] hover:bg-primary transition-all duration-500 shadow-xl font-bold"
                 >
                   Shop Now
                 </Link>
@@ -91,9 +91,9 @@ const Home = () => {
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-              className="relative group"
+              className="relative group pr-4"
             >
-              <div className="gold-frame aspect-[4/5] overflow-hidden shadow-2xl">
+              <div className="gold-frame aspect-[4/5] overflow-hidden shadow-2xl max-w-[500px] ml-auto">
                 <img
                   src={heroImg}
                   alt="Model in handcrafted Indian wear"
@@ -106,6 +106,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+Line 108: 
+
 
       {/* CATEGORY TILES — all 6 */}
       <section className="py-14 md:py-20 bg-background relative overflow-hidden">

@@ -66,11 +66,11 @@ export const Footer = () => {
             <h4 className="text-[10px] uppercase tracking-[0.3em] text-primary mb-4 font-bold">Connect With Us</h4>
             <div className="flex gap-4 text-foreground/70">
               {BRAND_CONFIG.social.instagram && (
-                <a 
-                  href={BRAND_CONFIG.social.instagram} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  aria-label="Instagram" 
+                <a
+                  href={BRAND_CONFIG.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
                   className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300 bg-card/50"
                 >
                   <Instagram size={18} />
@@ -83,7 +83,7 @@ export const Footer = () => {
 
       <div className="border-t border-border/60 relative">
         <div className="container py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} DHAGA Atelier. Handwoven with love.</p>
+          <p>© 2022 DHAGA Atelier. Handwoven with love.</p>
           <p className="font-serif italic">Elegance Woven in Every Thread</p>
         </div>
       </div>

@@ -4,12 +4,15 @@ import { Heart, MessageCircle, Share2, ChevronUp, ChevronDown, Loader2 } from "l
 import { Link } from "react-router-dom";
 import api from "@/lib/api";
 
+
 export const DhagaReels = () => {
   const [active, setActive] = useState(0);
   const [liked, setLiked] = useState<Record<string, boolean>>({});
   const [reels, setReels] = useState<any[]>([]);
   const [baseReels, setBaseReels] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [muted] = useState(true);
+
 
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -58,6 +61,7 @@ export const DhagaReels = () => {
     const el = containerRef.current;
     if (!el || reels.length === 0) return;
 
+
     let raf = 0;
     const onScroll = () => {
       cancelAnimationFrame(raf);
@@ -69,6 +73,7 @@ export const DhagaReels = () => {
         if (idx >= reels.length - 3) {
           setReels(prev => [...prev, ...baseReels]);
         }
+
       });
     };
 
@@ -80,11 +85,13 @@ export const DhagaReels = () => {
     };
   }, [reels, baseReels]);
 
+
   const goTo = (idx: number) => {
     const el = containerRef.current;
     if (!el) return;
 
     const next = Math.max(0, idx); // No upper limit because it's infinite
+
     el.scrollTo({ top: next * el.clientHeight, behavior: "smooth" });
   };
 
@@ -114,6 +121,7 @@ export const DhagaReels = () => {
     );
   }
 
+
   return (
     <div className="relative mx-auto w-full max-w-[380px] sm:max-w-[420px]">
       <div className="relative rounded-[2.4rem] bg-foreground p-2 shadow-luxe">
@@ -130,13 +138,15 @@ export const DhagaReels = () => {
             return (
               <section
                 key={`${r._id || r.id}-${i}`}
+
                 className="relative h-full w-full snap-start overflow-hidden"
               >
                 {/* VIDEO */}
                 <motion.video
                   ref={(el) => (videoRefs.current[i] = el)}
                   src={r.reelVideo}
-                  muted
+                  muted={muted}
+
                   loop
                   playsInline
                   autoPlay
@@ -166,11 +176,12 @@ export const DhagaReels = () => {
                       className="inline-block bg-white text-black px-5 py-2 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-white transition-all"
                     >
                       Shop Piece →
+
                     </Link>
                   </div>
 
                   {/* ACTIONS */}
-                  <div className="flex flex-col gap-5 items-center pb-2">
+                  <div className="flex-col gap-5 items-center pb-2">
                     <div className="flex flex-col items-center gap-1">
                       <button onClick={() => toggleLike(r._id || r.id)} className="w-10 h-10 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center border border-white/10">
                         <Heart
@@ -193,6 +204,7 @@ export const DhagaReels = () => {
                       </div>
                       <span className="text-[10px] font-bold tracking-tighter">Share</span>
                     </div>
+
                   </div>
                 </div>
               </section>
@@ -214,6 +226,7 @@ export const DhagaReels = () => {
           className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:border-primary transition-colors"
         >
           <ChevronDown size={20} />
+
         </button>
       </div>
     </div>

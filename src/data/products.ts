@@ -85,6 +85,7 @@ export interface Product {
   outOfStockSizes?: string[];
   stock?: number;
   reelVideo?: string;
+
 }
 
 export const products: Product[] = [

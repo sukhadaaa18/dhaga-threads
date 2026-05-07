@@ -13,6 +13,7 @@ const orderSchema = new mongoose.Schema({
     returnReason: { type: String },
     returnType: { type: String, enum: ['Refund', 'Replacement', 'Exchange'] },
     returnPickupDate: { type: Date },
+
     paymentMethod: { type: String, enum: ['COD', 'Online'], default: 'COD' },
     paymentStatus: { type: String, enum: ['Pending', 'Paid', 'Failed'], default: 'Pending' },
     address: {

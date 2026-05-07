@@ -26,6 +26,7 @@ app.use(express.json());
 // Routes
 const settingsRoute = require('./routes/settings');
 app.use('/api/site-settings', settingsRoute);
+
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/reservations', require('./routes/reservations'));
@@ -61,6 +62,7 @@ mongoose.connect(process.env.MONGODB_URI, connectionOptions)
     });
 
 const PORT = process.env.PORT || 5001;
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

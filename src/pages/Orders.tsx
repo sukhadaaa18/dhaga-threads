@@ -6,11 +6,13 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Textarea } from "@/components/ui/textarea";
+
 import { formatINR, formatDate } from "@/data/products";
 import { SectionHeading } from "@/components/SectionHeading";
 import api from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+
 
 const Orders = () => {
   const [tab, setTab] = useState<"orders" | "visits">("orders");
@@ -25,6 +27,7 @@ const Orders = () => {
   const [returnReason, setReturnReason] = useState("");
   const [returnType, setReturnType] = useState("Refund");
   const [returnPickupDate, setReturnPickupDate] = useState<Date | undefined>(undefined);
+
 
   useEffect(() => {
     const loadData = async () => {
@@ -70,6 +73,7 @@ const Orders = () => {
     }
   };
 
+
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "Processing": return <Clock size={18} />;
@@ -78,6 +82,7 @@ const Orders = () => {
       case "Return Requested": return <RefreshCcw size={18} />;
       case "Returned": return <CheckCircle size={18} />;
       case "Return Rejected": return <XCircle size={18} />;
+
       default: return <Package size={18} />;
     }
   };
@@ -95,6 +100,7 @@ const Orders = () => {
       case "Refund Processed": return "text-green-600 bg-green-100 border-green-200";
       case "Returned": return "text-green-500 bg-green-50 border-green-100";
       case "Return Rejected": return "text-red-500 bg-red-50 border-red-100";
+
       case "confirmed": return "text-primary bg-primary/5 border-primary/20";
       case "pending_confirmation": return "text-orange-500 bg-orange-50 border-orange-100";
       default: return "text-muted-foreground bg-muted/50 border-border";
@@ -216,6 +222,7 @@ const Orders = () => {
                       <div className="h-6" /> {/* Spacer for absolute text */}
                     </div>
                   )}
+
 
                   {/* Items */}
                   <div className="p-6 space-y-6">
@@ -388,6 +395,7 @@ const Orders = () => {
             )}
           </DialogContent>
         </Dialog>
+
       </div>
     </section>
   );

@@ -31,6 +31,7 @@ const videoStorage = new CloudinaryStorage({
 const upload = multer({ storage: storage });
 const uploadVideo = multer({ storage: videoStorage });
 
+
 // @route POST /api/upload
 router.post('/', protect, admin, (req, res) => {
     upload.single('image')(req, res, (err) => {
@@ -58,5 +59,6 @@ router.post('/video', protect, admin, (req, res) => {
         res.json({ url: req.file.path });
     });
 });
+
 
 module.exports = router;

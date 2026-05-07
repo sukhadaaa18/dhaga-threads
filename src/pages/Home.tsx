@@ -16,6 +16,7 @@ const Home = () => {
     instagramPosts: "100",
     instagramSaved: "300"
   });
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const Home = () => {
         ]);
         setProducts(resP.data.map((p: Product & { _id: string }) => ({ ...p, id: p._id })));
         if (resS.data) setStats(resS.data);
+
       } catch (e) {
         console.error(e);
       } finally {
@@ -184,6 +186,7 @@ const Home = () => {
               </div>
               <div className="text-center">
                 <p className="font-serif text-3xl text-primary">{stats.instagramSaved}</p>
+
                 <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">Saved</p>
               </div>
             </div>

@@ -19,6 +19,7 @@ const Sale = () => {
       const saleItems = data
         .filter((p: Product) => p.originalPrice && (p.originalPrice > p.price))
         .map((p: Product & { _id: string }) => ({ ...p, id: p._id }));
+
       setProducts(saleItems);
     } catch (e) {
       console.error(e);

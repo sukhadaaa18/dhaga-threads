@@ -83,7 +83,7 @@ export const Footer = () => {
 
       <div className="border-t border-border/60 relative">
         <div className="container py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-          <p>© 2022 DHAGA Atelier. Handwoven with love.</p>
+          <p>© {new Date().getFullYear()} DHAGA Atelier. Handwoven with love.</p>
           <p className="font-serif italic">Elegance Woven in Every Thread</p>
         </div>
       </div>

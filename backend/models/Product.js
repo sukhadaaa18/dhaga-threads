@@ -23,6 +23,7 @@ const productSchema = new mongoose.Schema({
     },
     stock: { type: Number, default: 10 },
     reelVideo: { type: String },
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);

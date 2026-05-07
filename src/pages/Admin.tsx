@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Plus, Pencil, Trash2, Package, ShoppingBag, Tag, ImageIcon, X, Loader2, CalendarCheck, BarChart3, Sparkles, Settings as SettingsIcon, Instagram, RefreshCw, Search } from "lucide-react";
+
 import { type Product, type Category, formatINR, formatDate, CATEGORIES, CATEGORY_META } from "@/data/products";
 import { cn } from "@/lib/utils";
 import api from "@/lib/api";
 import { toast } from "sonner";
 
 type Tab = "products" | "orders" | "reservations" | "categories" | "analytics" | "settings";
+
 
 const Admin = () => {
   const [tab, setTab] = useState<Tab>("products");
@@ -28,6 +30,7 @@ const Admin = () => {
   });
   const [syncing, setSyncing] = useState(false);
 
+
   useEffect(() => {
     loadData();
   }, [tab]);
@@ -45,6 +48,7 @@ const Admin = () => {
       setReservations(resR.data);
       const resS = await api.get("/site-settings");
       if (resS.data) setSettings(resS.data);
+
     } catch (error) {
       toast.error("Failed to load data");
     } finally {
@@ -163,6 +167,7 @@ const Admin = () => {
               { k: "analytics", l: "Analytics", icon: BarChart3 },
               { k: "categories", l: "Categories", icon: Tag },
               { k: "settings", l: "Settings", icon: SettingsIcon },
+
             ] as const).map(({ k, l, icon: Icon }) => (
               <button
                 key={k}
@@ -217,6 +222,7 @@ const Admin = () => {
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
+
               </div>
               <div className="flex gap-2">
                 <label className="bg-secondary text-secondary-foreground px-4 py-2 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-secondary/80 transition-colors cursor-pointer flex items-center gap-2 border border-border">
@@ -258,6 +264,7 @@ const Admin = () => {
                           p.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           categoryLabel.toLowerCase().includes(searchQuery.toLowerCase());
                         return matchesFilter && matchesSearch;
+
                       })
                       .map((p, idx) => (
                       <tr key={p.id} className="border-t border-border/60 hover:bg-muted/30 group">
@@ -405,6 +412,7 @@ const Admin = () => {
                             <option value="Return Picked Up">Return Picked Up</option>
                             <option value="Refund Processed">Refund Processed</option>
                             <option value="Return Rejected">Return Rejected</option>
+
                           </select>
                         </td>
                       </tr>
@@ -776,6 +784,7 @@ const ProductForm = ({
       isFestive: initial.isFestive ?? false,
       isNewProduct: initial.isNewProduct ?? false,
       reelVideo: initial.reelVideo || "",
+
     } : {
       id: "",
       name: "",
@@ -795,6 +804,7 @@ const ProductForm = ({
   );
   const [uploading, setUploading] = useState(false);
   const [videoUploading, setVideoUploading] = useState(false);
+
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -837,6 +847,7 @@ const ProductForm = ({
       setVideoUploading(false);
     }
   };
+
 
   return (
     <div className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
@@ -989,6 +1000,7 @@ const ProductForm = ({
                     </button>
                   )}
                 </div>
+
                 <p className="text-[10px] text-muted-foreground mt-2">JPG, PNG or WebP. Max 5MB.</p>
               </div>
             </div>
@@ -1040,6 +1052,7 @@ const ProductForm = ({
               )}
             </div>
           </Field>
+
           <div className="flex gap-3 pt-2">
             <button type="button" onClick={onClose} className="flex-1 border border-border py-3 text-xs uppercase tracking-[0.2em] hover:border-primary transition-colors">Cancel</button>
             <button type="submit" disabled={uploading} className="flex-1 bg-foreground text-background py-3 text-xs uppercase tracking-[0.2em] hover:bg-primary transition-colors disabled:opacity-50">

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Layout } from "@/components/Layout";
@@ -36,6 +37,7 @@ const App = () => (
       <Sonner />
       <Analytics />
       <SpeedInsights />
+
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>

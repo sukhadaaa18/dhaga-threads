@@ -17,6 +17,7 @@ const Wishlist = () => {
       try {
         const { data } = await api.get("/products");
         const mapped = data.map((p: Product & { _id: string }) => ({ ...p, id: p._id }));
+
         const filtered = mapped.filter((p: Product) => ids.includes(p.id));
         setItems(filtered);
       } catch (e) {
